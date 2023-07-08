@@ -1,0 +1,34 @@
+plugins {
+    id "io.qameta.allure" version "2.11.2"
+    id 'java-library'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava{
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+
+    implementation 'org.junit.jupiter:junit-jupiter:5.9.2'
+    implementation 'com.codeborne:selenide:6.14.0'
+    implementation 'org.slf4j:slf4j-simple:2.0.7'
+
+}
+
+tasks.withType(javax.tools.JavaCompiler) {
+    option.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
